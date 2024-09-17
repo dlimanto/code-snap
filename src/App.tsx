@@ -44,19 +44,28 @@ function App() {
   }, []);
 
   return (
-    <>
-      <div className='header p-2 mb-3 flex items-center gap-4'>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
+    <div className="min-h-screen bg-gray-50 p-4">
+      <header className="mb-6 bg-indigo-600 text-white p-4 rounded-lg shadow-lg">
+        <h1 className="text-2xl font-bold text-center">Code Snapper</h1>
+        <p className="text-center text-sm opacity-80">Snap and view HTML & CSS of elements on the page</p>
+      </header>
+      <div className="flex justify-center mb-6">
+        <button
+          onClick={selectElement}
+          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg shadow transition duration-200 ease-in-out transform hover:scale-105"
+        >
+          Start Element Selection
+        </button>
       </div>
-
-      <button onClick={selectElement}>
-        CLICK ME
-      </button>
-
-      <textarea className='p-2' value={output} readOnly />
-    </>
+      <div className="max-w-4xl mx-auto">
+        <textarea
+          className="w-full h-80 p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm font-mono bg-gray-100 text-gray-900 resize-none"
+          value={output}
+          readOnly
+          placeholder="Selected HTML and CSS will appear here..."
+        />
+      </div>
+    </div>
   );
 }
 
