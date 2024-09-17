@@ -1,0 +1,32 @@
+# Node modules
+node_modules/
+
+# Output of the build process
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Optional VSC-specific ignores
+.vscode/
+
+# Lockfiles
+package-lock.json
+yarn.lock
+
+# IDE/Editor specific files
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Build artifacts
+*.tsbuildinfo
