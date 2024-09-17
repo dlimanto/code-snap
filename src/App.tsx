@@ -6,7 +6,6 @@ function App() {
   const [output, setOutput] = useState('');
   const isSelecting = useRef(false);
 
-  // Function to load data from chrome storage and update the output
   const loadStoredData = () => {
     chrome.storage.local.get(['selectedHTML', 'selectedCSS'], (res) => {
       if (res.selectedHTML || res.selectedCSS) {
@@ -15,7 +14,6 @@ function App() {
     });
   };
 
-  // Trigger selection of an element
   const selectElement = () => {
     isSelecting.current = true;
 
@@ -29,7 +27,6 @@ function App() {
     });
   };
 
-  // Add an event listener to listen for changes in chrome storage
   useEffect(() => {
     const handleStorageChange = (changes: any, area: any) => {
       if (area === 'local' && (changes.selectedHTML || changes.selectedCSS)) {
@@ -37,13 +34,10 @@ function App() {
       }
     };
 
-    // Listen for storage changes
     chrome.storage.onChanged.addListener(handleStorageChange);
 
-    // Load initial data
     loadStoredData();
 
-    // Cleanup the listener when the component is unmounted
     return () => {
       chrome.storage.onChanged.removeListener(handleStorageChange);
     };
